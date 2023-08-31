@@ -1,4 +1,4 @@
-ARG GO_VER="1.20"
+ARG GO_VER="1.21"
 FROM golang:${GO_VER}
 ENV LANG=pl_PL.UTF-8 \
     LC_ALL=pl_PL.UTF-8 \
