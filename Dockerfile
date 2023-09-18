@@ -7,4 +7,8 @@ ENV LANG=pl_PL.UTF-8 \
     TZ='Europe/Warsaw'
 
 WORKDIR /opt/app
-COPY staticcheck/staticcheck /usr/bin/
+COPY getstaticcheck.sh ./
+SHELL ["/usr/bin/bash", "-c"]
+RUN apt-get update && apt-get install -y jq
+RUN ./getstaticcheck.sh
+RUN cp staticcheck/staticcheck /usr/bin/
