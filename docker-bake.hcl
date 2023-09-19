@@ -2,6 +2,10 @@ variable "TAG" {
   default = "latest"
 }
 
+variable "GO_VER" {
+  default = "1.21"
+}
+
 variable "VERSION" {
   default = "v5"
 }
@@ -17,6 +21,6 @@ target "gobuilder" {
     "docker.io/cyfrowy/gobuilder:${VERSION}",
   ]
   args = {
-    GO_VER="1.21"
+    GO_VER="${GO_VER}"
   }
 }
