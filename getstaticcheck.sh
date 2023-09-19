@@ -6,6 +6,5 @@ tar_name=staticcheck_linux_amd64.tar.gz
 query="[.assets[] | select(.name | match(\"${tar_name}$\"))][0] | .browser_download_url"
 tar_url=$(curl -s "${release_url}" | jq -r "${query}")
 echo "$tar_url"
-filename=$(basename "$tar_url")
 wget "$tar_url"
 tar zxvf "$tar_name"
