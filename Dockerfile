@@ -7,7 +7,7 @@ ENV LANG=pl_PL.UTF-8 \
     TZ='Europe/Warsaw'
 
 WORKDIR /opt/app
-COPY getstaticcheck.sh ./
-SHELL ["/usr/bin/bash", "-c"]
-RUN ./getstaticcheck.sh
-RUN cp staticcheck/staticcheck /usr/bin/
+RUN go install github.com/practical-coder/target@latest
+RUN target get --repo 'dominikh/go-tools' --pattern='linux_amd64'
+RUN tar zxvf staticcheck_linux_amd64.tar.gz
+RUN mv staticcheck/staticcheck /usr/bin/
